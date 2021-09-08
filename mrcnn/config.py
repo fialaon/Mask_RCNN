@@ -234,3 +234,9 @@ class Config(object):
             if not a.startswith("__") and not callable(getattr(self, a)):
                 print("{:30} {}".format(a, getattr(self, a)))
         print("\n")
+        s = "Configurations:\n"
+        for a in dir(self):
+            if not a.startswith("__") and not callable(getattr(self, a)):
+                s += "{:30} {}\n".format(a, getattr(self, a))
+        return s
+       

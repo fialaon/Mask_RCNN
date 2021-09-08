@@ -1846,10 +1846,11 @@ class MaskRCNN():
 
         # Image size must be dividable by 2 multiple times
         h, w = config.IMAGE_SHAPE[:2]
-        if h / 2**6 != int(h / 2**6) or w / 2**6 != int(w / 2**6):
-            raise Exception("Image size must be dividable by 2 at least 6 times "
-                            "to avoid fractions when downscaling and upscaling."
-                            "For example, use 256, 320, 384, 448, 512, ... etc. ")
+# TODO
+#        if h / 2**6 != int(h / 2**6) or w / 2**6 != int(w / 2**6):
+#            raise Exception("Image size must be dividable by 2 at least 6 times "
+#                            "to avoid fractions when downscaling and upscaling."
+#                            "For example, use 256, 320, 384, 448, 512, ... etc. ")
 
         # Inputs
         input_image = KL.Input(
