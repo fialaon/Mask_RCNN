@@ -689,7 +689,11 @@ if __name__ == '__main__':
 
             img = cv2.imread(fname_img, 1)[:, :, ::-1]
             img_mask_box = cv2.imread(fname_img_mask_box, 1)[:, :, ::-1]
-            img_openpose = cv2.imread(fname_img_openpose, 1)[:, :, ::-1]
+            try:
+                img_openpose = cv2.imread(fname_img_openpose, 1)[:, :, ::-1]
+            except:
+                print("WARNING: Openpose didn't recognize any contacts.")
+                continue
 
             if not np.isnan(detection_index_array[k]):
                 fname_mask = os.path.join(path_mask, '{}_{}.png'.format(frame_name_list[k], int(detection_index_array[k])))
